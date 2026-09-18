@@ -1,0 +1,166 @@
+/* ---------------------------------------------------------------
+   Design tokens
+   Mirrors the token architecture of the source theme: every colour,
+   easing curve and hover amount is a variable so a whole "colour
+   scheme" can be swapped on a section wrapper.
+---------------------------------------------------------------- */
+:root {
+  /* palette */
+  --color-background: #ffffff;
+  --color-background-rgb: 255 255 255;
+  --color-foreground: #232c66;
+  --color-foreground-rgb: 35 44 102;
+  --color-foreground-heading: #1a2257;
+  --color-border: #d9dce8;
+  --color-border-rgb: 217 220 232;
+  /* Raised from 0.6 / 0.35. The old values were the main cause of the
+     washed-out, hard-to-read body text. */
+  --color-muted: rgb(var(--color-foreground-rgb) / 0.78);
+  --color-faint: rgb(var(--color-foreground-rgb) / 0.58);
+
+  --color-primary-button-text: #ffffff;
+  --color-primary-button-background: #232c66;
+  --color-primary-button-hover-background: #121a45;
+  --color-secondary-button-text: #232c66;
+  --color-secondary-button-background: #e9ebf3;
+  --color-secondary-button-hover-background: #d7dbe9;
+
+  --color-sale: #8f2130;
+
+  /* opacity ramps */
+  --opacity-5-15: 0.05;
+  --opacity-10-25: 0.1;
+  --opacity-30-60: 0.5;
+  --opacity-35-55: 0.55;
+  --opacity-40-60: 0.62;
+
+  /* type */
+  --font-body--family: 'Cardo', 'Times New Roman', serif;
+  --font-body--weight: 400;
+  --font-label--weight: 600;
+  --font-heading--family: 'Newsreader', 'Times New Roman', serif;
+  /* Was 200. Newsreader at 200 is hairline-thin at display sizes and
+     is what made the headings strain to read. */
+  --font-heading--weight: 400;
+
+  --font-size--2xs: 0.625rem;
+  --font-size--xs: 0.75rem;
+  --font-size--sm: 0.8125rem;
+  --font-size--md: 0.875rem;
+  --font-size--base: 1rem;
+  --font-size--lg: 1.125rem;
+  --font-size--xl: 1.5rem;
+  --font-size--2xl: 2rem;
+  --font-size--3xl: 3rem;
+  --font-size--4xl: 4.5rem;
+
+  --letter-spacing-wide: 0.08em;
+  --letter-spacing-wider: 0.14em;
+
+  /* layout */
+  --page-margin: 2.5rem;
+  --narrow-page-width: 90rem;
+  --normal-page-width: 120rem;
+  --wide-page-width: 150rem;
+  --narrow-content-width: 36rem;
+  --normal-content-width: 42rem;
+  --wide-content-width: 46rem;
+  --sidebar-width: 25rem;
+
+  --section-height-small: 15rem;
+  --section-height-medium: 25rem;
+  --section-height-large: 35rem;
+
+  --padding-xs: 0.5rem;
+  --padding-sm: 1rem;
+  --padding-md: 1.5rem;
+  --padding-lg: 2.5rem;
+  --padding-xl: 4rem;
+  --padding-2xl: 6rem;
+
+  /* motion */
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+
+  --hover-lift-amount: 4px;
+  --hover-scale-amount: 1.03;
+  --hover-subtle-zoom-amount: 1.015;
+  --hover-transition-duration: 0.25s;
+  --hover-transition-timing: ease-out;
+  --surface-transition-duration: 0.3s;
+  --surface-transition-timing: var(--ease-out-quad);
+  --drawer-transition-duration: 0.45s;
+
+  --reveal-duration: 0.9s;
+  --reveal-distance: 18px;
+
+  /* chrome */
+  --header-height: 4.5rem;
+  --announcement-height: 2.5rem;
+  --shadow-blur: 20px;
+  --shadow-popover: 0 4px 20px rgb(0 0 0 / 0.08);
+  --icon-stroke-width: 1.5;
+  --border-radius: 0px;
+}
+
+/* Colour schemes. Sections opt in by class, exactly like the source
+   theme's `color-scheme-N` wrappers. */
+.scheme-light {
+  --color-background: #ffffff;
+  --color-background-rgb: 255 255 255;
+  --color-foreground: #232c66;
+  --color-foreground-rgb: 35 44 102;
+  --color-foreground-heading: #1a2257;
+  --color-border: #d9dce8;
+}
+
+.scheme-soft {
+  --color-background: #f1f2f8;
+  --color-foreground-heading: #1a2257;
+  --color-background-rgb: 241 242 248;
+  --color-foreground: #232c66;
+  --color-foreground-rgb: 35 44 102;
+  --color-border: #d3d7e6;
+}
+
+.scheme-indigo {
+  --color-background: #232c66;
+  --color-background-rgb: 35 44 102;
+  --color-foreground: #ffffff;
+  --color-foreground-rgb: 255 255 255;
+  --color-foreground-heading: #ffffff;
+  --color-border: rgb(255 255 255 / 0.25);
+  --color-primary-button-background: #ffffff;
+  --color-primary-button-text: #232c66;
+  --color-primary-button-hover-background: #e3e6f5;
+}
+
+.scheme-inverse {
+  --color-background: transparent;
+  --color-foreground: #ffffff;
+  --color-foreground-rgb: 255 255 255;
+  --color-foreground-heading: #ffffff;
+  --color-border: rgb(255 255 255 / 0.3);
+  --color-primary-button-background: #ffffff;
+  --color-primary-button-text: #232c66;
+  --color-primary-button-hover-background: #e3e6f5;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --page-margin: 1.5rem;
+    --font-size--4xl: 3rem;
+    --font-size--3xl: 2.25rem;
+    --padding-2xl: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-margin: 1.125rem;
+    --font-size--4xl: 2.375rem;
+    --font-size--3xl: 1.875rem;
+    --header-height: 3.75rem;
+  }
+}
